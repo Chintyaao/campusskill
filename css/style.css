@@ -82,11 +82,12 @@ nav a:hover {
     border-radius: 16px;
     text-align: center;
     box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+}
+
 .card:hover,
 .course-card:hover {
     transform: translateY(-5px);
     transition: 0.3s ease;
-}
 }
 
 /* TITLE */
@@ -199,17 +200,12 @@ footer {
         padding: 15px 0;
     }
 
-    nav a {
-        display: block;
-        padding: 10px 0;
+    nav.show {
+        display: flex;
     }
 
     .menu-toggle {
         display: block;
-    }
-
-    nav.show {
-        display: flex;
     }
 }
 
