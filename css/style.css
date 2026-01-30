@@ -20,6 +20,13 @@ header {
     box-shadow: 0 2px 8px rgba(0,0,0,0.05);
     position: sticky;
     top: 0;
+    z-index: 1000;
+.menu-toggle {
+    display: none;
+    font-size: 28px;
+    cursor: pointer;
+    z-index: 1100;
+}
 }
 
 header h1 {
@@ -193,11 +200,15 @@ footer {
 @media (max-width: 768px) {
     nav {
         display: none;
-        flex-direction: column;
-        background: white;
+        position: absolute;
+        top: 60px;
+        left: 0;
         width: 100%;
+        background: white;
+        flex-direction: column;
         text-align: center;
         padding: 15px 0;
+        z-index: 1000;
     }
 
     nav.show {
