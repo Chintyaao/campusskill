@@ -1,4 +1,6 @@
 alert("Selamat datang di CampusSkill+ 👋");
-function toggleMenu() {
-    document.getElementById("navMenu").classList.toggle("show");
-}
+document.addEventListener("DOMContentLoaded", function () {
+    document.querySelector(".menu-toggle").addEventListener("click", function () {
+        document.getElementById("navMenu").classList.toggle("show");
+    });
+});
