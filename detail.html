@@ -19,36 +19,67 @@
 
     <div id="hero-bg" class="animate" style="padding: 80px 0; text-align: center; color: white;">
         <div class="container">
-            <h1 id="title" style="font-size: 36px; text-shadow: 0 2px 10px rgba(0,0,0,0.2);">Memuat...</h1>
+            <h1 id="title" style="font-size: 36px; text-shadow: 0 2px 10px rgba(0,0,0,0.2);">Memuat Kelas...</h1>
         </div>
     </div>
 
     <section class="section-padding">
         <div class="container animate" style="max-width: 800px; background: white; padding: 40px; border-radius: 15px; margin-top: -60px; box-shadow: var(--shadow); position: relative; z-index: 5;">
             <h3 style="margin-bottom: 20px; border-left: 5px solid var(--primary); padding-left: 15px;">Kurikulum Materi</h3>
-            <ul id="list" class="syllabus-list"></ul>
-            <a href="login.html" class="btn-primary" style="width:100%; text-align:center; margin-top:35px; padding: 18px;">Beli Kursus</a>
+            
+            <ul id="list" class="syllabus-list" style="list-style: none;">
+                </ul>
+
+            <a href="login.html" class="btn-primary" style="width:100%; text-align:center; margin-top:35px; padding: 18px;">Daftar Kelas Ini</a>
         </div>
     </section>
 
+    <footer>
+        <div class="container">
+            <p style="color: var(--text-muted); font-size: 14px; font-weight: 500;">
+                Created by <b>Group 1 - UX for Digital Business (2026)</b>
+            </p>
+        </div>
+    </footer>
+
     <script>
+        // Database materi kursus
         const db = {
-            'bigdata': { t: 'Big Data: Hadoop & Spark', b: 'var(--banner-1)', l: ['Pertemuan 1 - Fundamentals of Big Data', 'Pertemuan 2 - Big Data for Business', 'Pertemuan 3 - Big Data Challenges', 'Pertemuan 4 - Big Data Storage', 'Pertemuan 5 - Big Data Processing', 'Pertemuan 6 - Big Data Analytics', 'Pertemuan 7 - Big Data Visualization', 'Pertemuan 8 - Hadoop Ecosystem', 'Pertemuan 9 - Big Data Application'] },
-            'uxdesign': { t: 'UX for Digital Business', b: 'var(--banner-2)', l: ['Pertemuan 1 - The Essentials of designing UX', 'Pertemuan 2 - The Essentials of designing UX 2', 'Pertemuan 3 - Data gathering and analysis', 'Pertemuan 4 - Discovering Requirement', 'Pertemuan 5 - Interface Design', 'Pertemuan 6 - Contexts for designing UX', 'Pertemuan 7 - Human factors in UX 1', 'Pertemuan 8 - Human factors in UX 2', 'Pertemuan 9 - Design and Prototyping'] },
-            'feasibility': { t: 'Industrial Feasibility Analysis', b: 'var(--banner-3)', l: ['Topic 1 Project Feasibility Theory', 'Topic 2 Relationship with Resources', 'Topic 3 Market Aspects', 'Topic 4 Technical Aspects', 'Topic 5 Development Management', 'Topic 6 Operational Aspects', 'Topic 7 Economic Aspects', 'Topic 8 Financial Aspects', 'Topic 9 Priority Order'] }
+            'bigdata': { 
+                t: 'Big Data: Hadoop & Spark', 
+                b: 'var(--banner-1)', 
+                l: ['Fundamentals of Big Data', 'Big Data for Business', 'Big Data Challenges', 'Big Data Storage', 'Big Data Processing', 'Big Data Analytics', 'Big Data Visualization', 'Hadoop Ecosystem', 'Big Data Application'] 
+            },
+            'uxdesign': { 
+                t: 'UX for Digital Business', 
+                b: 'var(--banner-2)', 
+                l: ['The Essentials of designing UX', 'Data gathering and analysis', 'Discovering Requirement', 'Interface Design', 'Contexts for designing UX', 'Human factors in UX', 'Design and Prototyping'] 
+            }
         };
+
+        // Ambil ID dari URL (misal: detail.html?course=bigdata)
         const id = new URLSearchParams(window.location.search).get('course');
         const c = db[id];
-        if(c){
+
+        if(c) {
             document.getElementById('title').innerText = c.t;
             document.getElementById('hero-bg').style.background = c.b;
-            c.l.forEach((m, index) => {
+            
+            const listContainer = document.getElementById('list');
+            c.l.forEach((materi, index) => {
                 let li = document.createElement('li');
-                li.style.animation = `fadeUp 0.5s ease forwards ${index * 0.05}s`;
-                li.style.opacity = '0';
-                li.innerHTML = '<span>✅</span> ' + m;
-                document.getElementById('list').appendChild(li);
+                li.style.padding = "15px 0";
+                li.style.borderBottom = "1px solid #eee";
+                li.style.display = "flex";
+                li.style.gap = "10px";
+                li.style.opacity = "0";
+                li.style.animation = `fadeUp 0.5s ease forwards ${index * 0.1}s`; // Animasi muncul berurutan
+                
+                li.innerHTML = `<span style="color: var(--primary)">✓</span> Pertemuan ${index + 1}: ${materi}`;
+                listContainer.appendChild(li);
             });
+        } else {
+            document.getElementById('title').innerText = "Kursus Tidak Ditemukan";
         }
     </script>
 </body>
