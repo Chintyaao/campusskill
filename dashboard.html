@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard User | CampusSkill</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <nav>
+        <div class="container nav-flex">
+            <a href="index.html" class="brand">
+                <img src="logo.png" alt="Logo">
+                Campus<span>Skill</span>
+            </a>
+            <div class="nav-links">
+                <span style="font-weight: 600; color: var(--secondary); margin-right: 15px;">Halo, Admin!</span>
+                <a href="index.html" class="btn-outline" style="text-decoration: none; font-size: 14px; color: var(--primary); border: 1px solid var(--primary); padding: 5px 15px; border-radius: 5px;">Keluar</a>
+            </div>
+        </div>
+    </nav>
+
+    <section class="section-padding">
+        <div class="container animate">
+            <h2 style="margin-bottom: 5px;">Kursus Saya</h2>
+            <p style="color: var(--text-muted); margin-bottom: 30px;">Berikut adalah daftar paket kursus yang sudah kamu beli.</p>
+
+            <div class="course-grid" style="grid-template-columns: 1fr;">
+                <div class="course-card" style="display: flex; align-items: center; padding: 20px; gap: 20px; border-left: 10px solid var(--primary);">
+                    <div style="font-size: 40px; background: var(--banner-1); width: 80px; height: 80px; display: flex; align-items: center; justify-content: center; border-radius: 10px; color: white;">📊</div>
+                    <div style="flex-grow: 1;">
+                        <span style="font-size: 12px; color: var(--primary); font-weight: 700;">AKTIF</span>
+                        <h3 style="margin: 5px 0;">Big Data Technologies: Hadoop & Spark</h3>
+                        <p style="font-size: 14px; color: var(--text-muted);">Progres Belajar: 0% (Belum Dimulai)</p>
+                    </div>
+                    <div>
+                        <a href="detail.html?course=bigdata" class="btn-primary">Lanjut Belajar</a>
+                    </div>
+                </div>
+            </div>
+
+            <div style="margin-top: 40px; text-align: center; padding: 40px; border: 2px dashed #ddd; border-radius: 15px;">
+                <p style="color: #999;">Ingin belajar skill lain?</p>
+                <a href="courses.html" style="color: var(--primary); font-weight: 600; text-decoration: none;">Cari Kursus Lainnya →</a>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
