@@ -6,35 +6,25 @@
     <title>Masuk | CampusSkill</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
-<body style="background: var(--bg-light); display: flex; align-items: center; justify-content: center; min-height: 100vh;">
-    
-    <div class="animate" style="width: 100%; max-width: 380px; background: white; padding: 40px; border-radius: 12px; box-shadow: var(--shadow); text-align: center;">
-        <img src="logo.png" alt="Logo" style="height: 60px; margin-bottom: 25px;">
-        
-        <h2 style="margin-bottom: 10px; color: var(--secondary);">Masuk Akun</h2>
-        <p style="font-size: 14px; color: var(--text-muted); margin-bottom: 25px;">Masukkan kredensial Anda untuk mengakses kursus.</p>
-        
-        <input type="text" id="username" placeholder="Username" style="width:100%; padding:14px; margin-bottom:15px; border:1px solid #ddd; border-radius:8px; outline: none;">
-        <input type="password" id="password" placeholder="Password" style="width:100%; padding:14px; margin-bottom:20px; border:1px solid #ddd; border-radius:8px; outline: none;">
-        
-        <button onclick="handleLogin()" class="btn-primary" style="width:100%; padding: 15px; font-size: 16px;">Masuk</button>
-        
-        <p id="error-msg" style="color: #ff4d4d; font-size: 13px; margin-top: 15px; display: none;">Kredensial tidak valid. Silakan coba lagi.</p>
+<body style="background: var(--bg-light); display: flex; flex-direction: column; min-height: 100vh;">
+    <div style="flex-grow: 1; display: flex; align-items: center; justify-content: center;">
+        <div class="animate" style="width: 100%; max-width: 380px; background: white; padding: 40px; border-radius: 12px; box-shadow: var(--shadow); text-align: center;">
+            <img src="logo.png" alt="Logo" style="height: 60px; margin-bottom: 25px;">
+            <h2 style="margin-bottom: 25px; color: var(--secondary);">Masuk Akun</h2>
+            <input type="text" id="username" placeholder="Username" style="width:100%; padding:14px; margin-bottom:15px; border:1px solid #ddd; border-radius:8px; outline: none;">
+            <input type="password" id="password" placeholder="Password" style="width:100%; padding:14px; margin-bottom:20px; border:1px solid #ddd; border-radius:8px; outline: none;">
+            <button onclick="handleLogin()" class="btn-primary" style="width:100%; padding: 15px;">Masuk</button>
+            <p id="error-msg" style="color: #ff4d4d; font-size: 13px; margin-top: 15px; display: none;">Username atau Password salah.</p>
+        </div>
     </div>
-
     <script>
         function handleLogin() {
             const u = document.getElementById('username').value;
             const p = document.getElementById('password').value;
-            const error = document.getElementById('error-msg');
-
-            // Logika "Rahasia": hanya admin/admin yang bisa masuk
             if (u === 'admin' && p === 'admin') {
                 window.location.href = "dashboard.html";
             } else {
-                error.style.display = 'block';
-                // Reset input password jika salah
-                document.getElementById('password').value = '';
+                document.getElementById('error-msg').style.display = 'block';
             }
         }
     </script>
